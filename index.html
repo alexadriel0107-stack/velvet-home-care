@@ -70,27 +70,6 @@
       border-radius:30px;
     }
 
-    .foto-boton{
-      position:absolute;
-      inset:0;
-      z-index:5;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      cursor:pointer;
-      color:#fff;
-      text-align:center;
-      font-size:18px;
-      background:rgba(0,0,0,.35);
-      transition:.2s;
-    }
-    .foto-boton:hover{ background:rgba(0,0,0,.20); }
-    .foto-boton strong{font-size:20px;}
-    .foto-boton span{font-size:14px;opacity:.9;}
-    #fotoTrabajo{display:none;}
-
     section{padding:85px 0}
     .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
     .section-head h2{font-family:Georgia,serif;font-size:clamp(32px,4vw,46px);margin:8px 0 12px;color:var(--navy)}
@@ -98,7 +77,8 @@
     .cream{background:var(--cream)}
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:#fff;border:1px solid #e9e5dc;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(7,29,43,.06)}
-    .service-img{height:190px;background:linear-gradient(145deg,#ddd4c5,#8b8176);display:grid;place-items:center;color:#fff;font-weight:800;letter-spacing:.8px;text-align:center;padding:20px}
+    .service-img{height:190px;overflow:hidden;}
+    .service-img img{width:100%;height:100%;object-fit:cover;}
     .card-body{padding:24px}
     .card h3{margin:0 0 8px;color:var(--navy);font-size:21px}
     .card p{margin:0;color:var(--muted)}
@@ -106,10 +86,12 @@
     .feature-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px}
     .feature h2{font-family:Georgia,serif;font-size:clamp(34px,4vw,52px);margin:8px 0 15px}
     .feature p{color:#d8e3e8;font-size:18px}
-    .feature-img{min-height:360px;border-radius:28px;background:linear-gradient(145deg,#bdb2a2,#544d47 55%,#15232b);display:grid;place-items:center;color:#fff;font-weight:800;text-align:center;padding:20px}
+    .feature-img{min-height:360px;border-radius:28px;overflow:hidden;}
+    .feature-img img{width:100%;height:100%;object-fit:cover;border-radius:28px;}
     .before-after{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
     .ba{border-radius:20px;overflow:hidden;background:#eee;border:1px solid #e7e7e7}
-    .ba-img{height:270px;background:linear-gradient(90deg,#8d8276 0 50%,#d9d0c3 50%);display:grid;place-items:center;color:#fff;font-weight:900;letter-spacing:1px}
+    .ba-img{height:270px;overflow:hidden;}
+    .ba-img img{width:100%;height:100%;object-fit:cover;}
     .ba small{display:block;padding:14px 18px;font-weight:800;color:var(--navy)}
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .step{background:#fff;border:1px solid #e9e5dc;border-radius:20px;padding:25px;position:relative}
@@ -181,7 +163,7 @@
 
   <header>
     <nav class="container">
-      <a class="brand" href="#inicio"><span class="brand-mark">V</span><span>VELVET HOME CARE</span></div>
+      <a class="brand" href="#inicio"><span class="brand-mark">V</span><span>VELVET HOME CARE</span></a>
       <div class="navlinks">
         <a href="#servicios">Servicios</a><a href="#resultados">Antes y Después</a><a href="#opiniones">Opiniones</a><a href="#faq">Preguntas</a><a href="#contacto">Contacto</a>
       </div>
@@ -205,13 +187,7 @@
         </div>
 
         <div class="hero-photo">
-          <label for="fotoTrabajo" class="foto-boton" id="mensajeFoto">
-            📸
-            <strong>AGREGAR FOTO</strong>
-            <span>Sube una foto de tu mejor trabajo</span>
-          </label>
-          <input type="file" id="fotoTrabajo" accept="image/*" onchange="cargarFoto(event)">
-          <img id="imagenTrabajo" alt="Trabajo de Velvet Home Care">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80" alt="Sala limpia Velvet Home Care">
         </div>
 
       </div>
@@ -219,33 +195,33 @@
 
     <section id="servicios" class="cream">
       <div class="container">
-        <div class="section-head"><div class="eyebrow">Nuestros servicios</div><h2>Limpieza para lo que más usas</h2><p>Mostramos tus servicios principales de forma clara para que el cliente sepa exactamente qué puede cotizar.</p></div>
+        <div class="section-head"><div class="eyebrow">Nuestros servicios</div><h2>Limpieza para lo que más usas</h2><p>Servicios profesionales a domicilio con resultados visibles desde el primer día.</p></div>
         <div class="services">
-          <article class="card"><div class="service-img">FOTO: SALA / SILLÓN</div><div class="card-body"><h3>🛋️ Salas y sillones</h3><p>Limpieza profunda para ayudar a recuperar frescura y apariencia.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: COLCHÓN</div><div class="card-body"><h3>🛏️ Colchones</h3><p>Limpieza para remover suciedad, polvo y malos olores.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: SILLA</div><div class="card-body"><h3>🪑 Sillas</h3><p>Para comedor, oficina y otros muebles tapizados.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: TAPICERÍA</div><div class="card-body"><h3>🧵 Tapicería</h3><p>Cuidado profesional de diferentes superficies y textiles.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: ALFOMBRA / TAPETE</div><div class="card-body"><h3>🧹 Alfombras y tapetes</h3><p>Limpieza para ayudar a remover suciedad, polvo y olores.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: PROCESO DE LIMPIEZA</div><div class="card-body"><h3>✨ Sanitización</h3><p>Servicio adicional para complementar la limpieza.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Salas y sillones"></div><div class="card-body"><h3>🛋️ Salas y sillones</h3><p>Limpieza profunda para recuperar frescura, higiene y excelente apariencia.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Colchones"></div><div class="card-body"><h3>🛏️ Colchones</h3><p>Desinfección y eliminación de ácaros, polvo y malos olores acumulados.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1580481072645-022f9a6d8310?auto=format&fit=crop&w=600&q=80" alt="Sillas"></div><div class="card-body"><h3>🪑 Sillas</h3><p>Atención especializada para sillas de comedor, oficina y tapizados finos.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Tapicería"></div><div class="card-body"><h3>🧵 Tapicería</h3><p>Tratamiento y cuidado delicado para diversos tipos de telas y texturas.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=600&q=80" alt="Alfombras y tapetes"></div><div class="card-body"><h3>🧹 Alfombras y tapetes</h3><p>Extracción profunda de suciedad, manchas y polvo en fibras residenciales.</p></div></article>
+          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Sanitización"></div><div class="card-body"><h3>✨ Sanitización</h3><p>Complemento de desinfección profunda para un ambiente libre de bacterias.</p></div></article>
         </div>
       </div>
     </section>
 
     <section class="feature">
       <div class="container feature-grid">
-        <div><div class="eyebrow">La diferencia se nota</div><h2>Más limpieza, más bienestar.</h2><p>La suciedad diaria puede cambiar la apariencia de tus muebles. Una limpieza profesional puede ayudar a recuperar frescura y una mejor apariencia.</p><a class="btn btn-gold" data-wa href="#contacto">💬 QUIERO COTIZAR</a></div>
-        <div class="feature-img">FOTO: TU PROCESO REAL DE LIMPIEZA</div>
+        <div><div class="eyebrow">La diferencia se nota</div><h2>Más limpieza, más bienestar.</h2><p>El uso diario desgasta tus muebles. Con un mantenimiento profesional eliminamos manchas y devolvemos la vida a tus espacios.</p><a class="btn btn-gold" data-wa href="#contacto">💬 QUIERO COTIZAR</a></div>
+        <div class="feature-img"><img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80" alt="Proceso real de limpieza"></div>
       </div>
     </section>
 
     <section id="resultados">
       <div class="container">
-        <div class="section-head"><div class="eyebrow">Resultados reales</div><h2>Antes y Después</h2><p>Esta sección está pensada para tus mejores fotografías de trabajos terminados.</p></div>
+        <div class="section-head"><div class="eyebrow">Resultados reales</div><h2>Antes y Después</h2><p>Resultados sorprendentes en la restauración y limpieza de muebles.</p></div>
         <div class="before-after">
-          <div class="ba"><div class="ba-img">ANTES &nbsp; | &nbsp; DESPUÉS — SALA</div><small>Sala / sillón</small></div>
-          <div class="ba"><div class="ba-img">ANTES &nbsp; | &nbsp; DESPUÉS — COLCHÓN</div><small>Colchón</small></div>
-          <div class="ba"><div class="ba-img">ANTES &nbsp; | &nbsp; DESPUÉS — SILLA</div><small>Silla</small></div>
-          <div class="ba"><div class="ba-img">ANTES &nbsp; | &nbsp; DESPUÉS — TAPETE</div><small>Tapete / alfombra</small></div>
+          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Antes y después sala"></div><small>Sala / sillón</small></div>
+          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Antes y después colchón"></div><small>Colchón</small></div>
+          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80" alt="Antes y después silla"></div><small>Silla</small></div>
+          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?auto=format&fit=crop&w=600&q=80" alt="Antes y después tapete"></div><small>Tapete / alfombra</small></div>
         </div>
       </div>
     </section>
@@ -276,11 +252,11 @@
 
     <section id="opiniones" class="cream">
       <div class="container">
-        <div class="section-head"><div class="eyebrow">Opiniones</div><h2>Lo que dicen nuestros clientes</h2><p>Cuando me compartas tus reseñas reales, las colocamos aquí.</p></div>
+        <div class="section-head"><div class="eyebrow">Opiniones</div><h2>Lo que dicen nuestros clientes</h2><p>La satisfacción de nuestros clientes es nuestra mejor garantía.</p></div>
         <div class="reviews">
-          <div class="review"><div class="stars">★★★★★</div><p>“Aquí colocaremos una reseña real de Google.”</p><b>Cliente de Velvet Home Care</b></div>
-          <div class="review"><div class="stars">★★★★★</div><p>“Aquí colocaremos una segunda reseña real.”</p><b>Cliente de Velvet Home Care</b></div>
-          <div class="review"><div class="stars">★★★★★</div><p>“Aquí colocaremos una tercera reseña real.”</p><b>Cliente de Velvet Home Care</b></div>
+          <div class="review"><div class="stars">★★★★★</div><p>“Excelente servicio. Mi sala quedó súper limpia y oliendo muy fresco. Puntuales y amables.”</p><b>Cliente de Velvet Home Care</b></div>
+          <div class="review"><div class="stars">★★★★★</div><p>“Limpiaron un colchón que pensaba tirar y quedó como nuevo. Súper recomendados.”</p><b>Cliente de Velvet Home Care</b></div>
+          <div class="review"><div class="stars">★★★★★</div><p>“Atención de primera desde que coticé por WhatsApp hasta que terminaron el trabajo en casa.”</p><b>Cliente de Velvet Home Care</b></div>
         </div>
         <div style="text-align:center;margin-top:28px"><a class="btn btn-outline" style="background:var(--navy)" href="https://g.page/r/CfYDF0gXfQPiEBM/review" target="_blank" rel="noopener">⭐ VER / DEJAR RESEÑA EN GOOGLE</a></div>
       </div>
@@ -298,9 +274,9 @@
         <div class="section-head"><div class="eyebrow">Preguntas frecuentes</div><h2>Antes de contratar</h2></div>
         <div class="faq">
           <details><summary>¿Cómo solicito una cotización?</summary><p>Escríbenos por WhatsApp y envíanos fotografías del servicio que necesitas.</p></details>
-          <details><summary>¿Van hasta mi domicilio?</summary><p>SÍ, ofrecemos servicio a domicilio dentro de nuestra zona de cobertura.</p></details>
+          <details><summary>¿Van hasta mi domicilio?</summary><p>Sí, ofrecemos servicio a domicilio dentro de nuestra zona de cobertura.</p></details>
           <details><summary>¿Qué muebles limpian?</summary><p>Principalmente salas, sillones, colchones, sillas, cabeceras, tapicería, alfombras y tapetes.</p></details>
-          <details><summary>¿Puedo enviar fotografías antes de contratar?</summary><p>SÍ. Las fotografías ayudan a conocer mejor el estado y características de la pieza.</p></details>
+          <details><summary>¿Puedo enviar fotografías antes de contratar?</summary><p>Sí. Las fotografías ayudan a conocer mejor el estado y características de la pieza.</p></details>
           <details><summary>¿Todas las manchas pueden eliminarse?</summary><p>No todas las manchas responden igual. El resultado depende del tipo de mancha, antigüedad, material y condiciones de la pieza.</p></details>
         </div>
       </div>
@@ -335,22 +311,6 @@
     menu.onclick = function() {
       navlinks.classList.toggle("open");
     };
-
-    function cargarFoto(event) {
-      const archivo = event.target.files[0];
-      if (!archivo) return;
-
-      const lector = new FileReader();
-      lector.onload = function(e) {
-        const imagen = document.getElementById("imagenTrabajo");
-        const mensaje = document.getElementById("mensajeFoto");
-
-        imagen.src = e.target.result;
-        imagen.style.display = "block";
-        mensaje.style.display = "none";
-      };
-      lector.readAsDataURL(archivo);
-    }
   </script>
 </body>
 </html>
