@@ -59,44 +59,16 @@
       height:470px;
       border-radius:30px;
       border:1px solid rgba(255,255,255,.16);
-      background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),
-                 radial-gradient(circle at 50% 45%,#c9b99f 0 15%,transparent 16%),
-                 linear-gradient(145deg,#b6a28c,#6d655d 45%,#27343a);
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
-      cursor:pointer;
-    }
-    .hero-photo:before{
-      display:none !important;
-      content:none !important;
     }
     .hero-photo img{
       width:100%;
       height:100%;
       object-fit:cover;
       border-radius:30px;
-      display:none;
     }
-
-    .foto-boton{
-      position:absolute;
-      inset:0;
-      z-index:5;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      cursor:pointer;
-      color:#fff;
-      text-align:center;
-      font-size:18px;
-      background:rgba(0,0,0,.20);
-    }
-    .foto-boton strong{font-size:20px;}
-    .foto-boton span{font-size:14px;opacity:.9;}
-    #fotoTrabajo{display:none;}
 
     section{padding:85px 0}
     .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
@@ -212,23 +184,7 @@
         </div>
 
         <div class="hero-photo">
-          <label for="fotoTrabajo" class="foto-boton" id="mensajeFoto">
-            📸
-            <strong>AGREGAR FOTO</strong>
-            <span>Sube una foto de tu mejor trabajo</span>
-          </label>
-
-          <input
-            type="file"
-            id="fotoTrabajo"
-            accept="image/*"
-            onchange="cargarFoto(event)"
-          >
-
-          <img
-            id="imagenTrabajo"
-            alt="Trabajo de Velvet Home Care"
-          >
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80" alt="Sala limpia Velvet Home Care">
         </div>
 
       </div>
@@ -239,7 +195,7 @@
         <div class="section-head"><div class="eyebrow">Nuestros servicios</div><h2>Limpieza para lo que más usas</h2><p>Mostramos tus servicios principales de forma clara para que el cliente sepa exactamente qué puede cotizar.</p></div>
         <div class="services">
           <article class="card"><div class="service-img">FOTO: SALA / SILLÓN</div><div class="card-body"><h3>🛋️ Salas y sillones</h3><p>Limpieza profunda para ayudar a recuperar frescura y apariencia.</p></div></article>
-          <article class="card"><div class="service-img">FOTO: COLCHÓN</div><div class="card-body"><h3>🛏️ Colchones</h3><p>Limpieza para remover suciedad, polvo y malos olores.</p></div></article>
+          <article class="card"><div class="service-img">FOTO: COLCHÓN</div><div class="card-body"><h3>🛏️️ Colchones</h3><p>Limpieza para remover suciedad, polvo y malos olores.</p></div></article>
           <article class="card"><div class="service-img">FOTO: SILLA</div><div class="card-body"><h3>🪑 Sillas</h3><p>Para comedor, oficina y otros muebles tapizados.</p></div></article>
           <article class="card"><div class="service-img">FOTO: TAPICERÍA</div><div class="card-body"><h3>🧵 Tapicería</h3><p>Cuidado profesional de diferentes superficies y textiles.</p></div></article>
           <article class="card"><div class="service-img">FOTO: ALFOMBRA / TAPETE</div><div class="card-body"><h3>🧹 Alfombras y tapetes</h3><p>Limpieza para ayudar a remover suciedad, polvo y olores.</p></div></article>
@@ -352,22 +308,6 @@
     menu.onclick = function() {
       navlinks.classList.toggle("open");
     };
-
-    function cargarFoto(event) {
-      const archivo = event.target.files[0];
-      if (!archivo) return;
-
-      const lector = new FileReader();
-      lector.onload = function(e) {
-        const imagen = document.getElementById("imagenTrabajo");
-        const mensaje = document.getElementById("mensajeFoto");
-
-        imagen.src = e.target.result;
-        imagen.style.display = "block";
-        mensaje.style.display = "none";
-      };
-      lector.readAsDataURL(archivo);
-    }
   </script>
 </body>
 </html>
