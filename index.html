@@ -287,22 +287,10 @@ z-index:100;
 
   <a class="float-wa" data-wa href="#contacto" aria-label="Cotizar por WhatsApp">💬</a> 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.querySelector(".menu");
-  const navlinks = document.querySelector(".navlinks");
+const menu = document.querySelector(".menu");
+const navlinks = document.querySelector(".navlinks");
 
-  if (menu && navlinks) {
-    menu.addEventListener("click", function () {
-      navlinks.classList.toggle("open");
-    });
-
-    navlinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navlinks.classList.remove("open");
-      });
-    });
-  }
-});
+menu.onclick = function() {
+  navlinks.classList.toggle("open");
+};
 </script>
-</body>
-</html>
