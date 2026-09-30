@@ -187,28 +187,27 @@ z-index:100;
           </div>
           <div class="trust"><span>🏠 Servicio a domicilio</span><span>✨ Atención personalizada</span></div>
         </div>
-        <div class="hero-photo" id="heroPhoto" onclick="document.getElementById('fotoTrabajo').click()">
+<div class="hero-photo" onclick="document.getElementById('fotoTrabajo').click()">
+  <label for="fotoTrabajo" class="foto-boton">
+    📷
+    <strong>AGREGAR FOTO</strong>
+    <span>Tu mejor trabajo de Velvet Home Care</span>
+  </label>
 
   <input
     type="file"
     id="fotoTrabajo"
     accept="image/*"
-    style="display:none"
     onchange="cargarFoto(event)"
+    style="display:none;"
   >
 
   <img
     id="imagenTrabajo"
-    src=""
-    alt="Foto principal de Velvet Home Care"
+    alt="Trabajo de Velvet Home Care"
     style="display:none;"
   >
-
-  <div id="mensajeFoto">
-    📷<br>
-    <strong>TOCA PARA SUBIR</strong><br>
-    TU MEJOR FOTO DE UNA SALA LIMPIA
-  </div>
+</div>
 
 </div>
       </div>
