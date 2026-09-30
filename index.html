@@ -172,7 +172,30 @@ z-index:100;
           </div>
           <div class="trust"><span>🏠 Servicio a domicilio</span><span>✨ Atención personalizada</span></div>
         </div>
-        <div class="hero-photo">REEMPLAZAR CON TU MEJOR FOTO DE UNA SALA LIMPIA</div>
+        <div class="hero-photo" id="heroPhoto" onclick="document.getElementById('fotoTrabajo').click()">
+
+  <input
+    type="file"
+    id="fotoTrabajo"
+    accept="image/*"
+    style="display:none"
+    onchange="cargarFoto(event)"
+  >
+
+  <img
+    id="imagenTrabajo"
+    src=""
+    alt="Foto principal de Velvet Home Care"
+    style="display:none;"
+  >
+
+  <div id="mensajeFoto">
+    📷<br>
+    <strong>TOCA PARA SUBIR</strong><br>
+    TU MEJOR FOTO DE UNA SALA LIMPIA
+  </div>
+
+</div>
       </div>
     </section>
 
@@ -293,4 +316,23 @@ const navlinks = document.querySelector(".navlinks");
 menu.onclick = function() {
   navlinks.classList.toggle("open");
 };
+</script><script>
+function cargarFoto(event) {
+  const archivo = event.target.files[0];
+
+  if (!archivo) return;
+
+  const lector = new FileReader();
+
+  lector.onload = function(e) {
+    const imagen = document.getElementById("imagenTrabajo");
+    const mensaje = document.getElementById("mensajeFoto");
+
+    imagen.src = e.target.result;
+    imagen.style.display = "block";
+    mensaje.style.display = "none";
+  };
+
+  lector.readAsDataURL(archivo);
+}
 </script>
