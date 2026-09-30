@@ -6,22 +6,7 @@
   <meta name="description" content="Velvet Home Care — limpieza profesional a domicilio de salas, colchones, sillas, tapicería, alfombras y tapetes.">
   <meta name="theme-color" content="#071d2b">
   <title>Velvet Home Care | Limpieza profesional a domicilio</title>
-  .hero-photo{
-  cursor:pointer;
-}
-
-.hero-photo:before{
-  display:none !important;
-  content:none !important;
-}
-
-.hero-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:30px;
-}
-
+  <style>
     :root{
       --navy:#071d2b; --navy2:#0d3043; --cream:#f8f4ec; --gold:#d9b56d;
       --green:#12b96f; --ink:#18242b; --muted:#65727a; --white:#fff;
@@ -43,17 +28,17 @@
     .navlinks a:hover{color:var(--gold)}
     .menu{display:none;background:none;border:0;color:#fff;font-size:27px}
 
-.navlinks.open{
-display:flex;
-position:absolute;
-top:72px;
-right:20px;
-flex-direction:column;
-background:var(--navy);
-padding:20px;
-border-radius:15px;
-z-index:100;
-}
+    .navlinks.open{
+      display:flex;
+      position:absolute;
+      top:72px;
+      right:20px;
+      flex-direction:column;
+      background:var(--navy);
+      padding:20px;
+      border-radius:15px;
+      z-index:100;
+    }
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:14px 22px;font-weight:800;cursor:pointer;transition:.2s}
     .btn-green{background:var(--green);color:#fff;box-shadow:0 8px 25px rgba(18,185,111,.25)}
     .btn-green:hover{transform:translateY(-2px);filter:brightness(1.04)}
@@ -69,43 +54,50 @@ z-index:100;
     .hero p{font-size:20px;color:#e7eef2;max-width:610px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
     .trust{display:flex;gap:20px;flex-wrap:wrap;color:#d7e1e6;font-size:14px}
-    .hero-photo{height:470px;border-radius:30px;border:1px solid rgba(255,255,255,.16);background:
-      linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),
-      radial-gradient(circle at 50% 45%,#c9b99f 0 15%,transparent 16%),
-      linear-gradient(145deg,#b6a28c,#6d655d 45%,#27343a);box-shadow:var(--shadow);position:relative;overflow:hidden}
-.hero-photo:before{
-  display:none !important;
-  content:none !important;
-}
+    
+    .hero-photo{
+      height:470px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),
+                 radial-gradient(circle at 50% 45%,#c9b99f 0 15%,transparent 16%),
+                 linear-gradient(145deg,#b6a28c,#6d655d 45%,#27343a);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+    }
+    .hero-photo:before{
+      display:none !important;
+      content:none !important;
+    }
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:30px;
+      display:none;
+    }
 
-.foto-boton{
-  position:absolute;
-  inset:0;
-  z-index:5;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  cursor:pointer;
-  color:#fff;
-  text-align:center;
-  font-size:18px;
-  background:rgba(0,0,0,.20);
-}
+    .foto-boton{
+      position:absolute;
+      inset:0;
+      z-index:5;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      cursor:pointer;
+      color:#fff;
+      text-align:center;
+      font-size:18px;
+      background:rgba(0,0,0,.20);
+    }
+    .foto-boton strong{font-size:20px;}
+    .foto-boton span{font-size:14px;opacity:.9;}
+    #fotoTrabajo{display:none;}
 
-.foto-boton strong{
-  font-size:20px;
-}
-
-.foto-boton span{
-  font-size:14px;
-  opacity:.9;
-}
-
-#fotoTrabajo{
-  display:none;
-}
     section{padding:85px 0}
     .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
     .section-head h2{font-family:Georgia,serif;font-size:clamp(32px,4vw,46px);margin:8px 0 12px;color:var(--navy)}
@@ -178,7 +170,6 @@ z-index:100;
   </style>
 </head>
 <body>
-  <!-- CONFIGURACIÓN RÁPIDA: cambia WHATSAPP_NUMBER por tu número real, sin +, espacios ni guiones. -->
   <script>
     const WHATSAPP_NUMBER = "525512304762";
     const whatsappText = encodeURIComponent("Hola Velvet Home Care. Quiero solicitar una cotización. Te envío fotos de lo que necesito limpiar.");
@@ -219,45 +210,27 @@ z-index:100;
           </div>
           <div class="trust"><span>🏠 Servicio a domicilio</span><span>✨ Atención personalizada</span></div>
         </div>
-<div class="hero-photo">
 
-  <label for="fotoTrabajo" class="foto-boton">
-    📸
-    <strong>AGREGAR FOTO</strong>
-    <span>Sube una foto de tu mejor trabajo</span>
-  </label>
+        <div class="hero-photo">
+          <label for="fotoTrabajo" class="foto-boton" id="mensajeFoto">
+            📸
+            <strong>AGREGAR FOTO</strong>
+            <span>Sube una foto de tu mejor trabajo</span>
+          </label>
 
-  <input
-    type="file"
-    id="fotoTrabajo"
-    accept="image/*"
-    onchange="cargarFoto(event)"
-  >
+          <input
+            type="file"
+            id="fotoTrabajo"
+            accept="image/*"
+            onchange="cargarFoto(event)"
+          >
 
-  <img
-    id="imagenTrabajo"
-    alt="Trabajo de Velvet Home Care"
-  >
+          <img
+            id="imagenTrabajo"
+            alt="Trabajo de Velvet Home Care"
+          >
+        </div>
 
-</div>
-
-
-  <input
-    type="file"
-    id="fotoTrabajo"
-    accept="image/*"
-    onchange="cargarFoto(event)"
-    style="display:none;"
-  >
-
-  <img
-    id="imagenTrabajo"
-    alt="Trabajo de Velvet Home Care"
-    style="display:none;"
-  >
-</div>
-
-</div>
       </div>
     </section>
 
@@ -371,30 +344,30 @@ z-index:100;
   </footer>
 
   <a class="float-wa" data-wa href="#contacto" aria-label="Cotizar por WhatsApp">💬</a> 
-<script>
-const menu = document.querySelector(".menu");
-const navlinks = document.querySelector(".navlinks");
 
-menu.onclick = function() {
-  navlinks.classList.toggle("open");
-};
-</script><script>
-function cargarFoto(event) {
-  const archivo = event.target.files[0];
+  <script>
+    const menu = document.querySelector(".menu");
+    const navlinks = document.querySelector(".navlinks");
 
-  if (!archivo) return;
+    menu.onclick = function() {
+      navlinks.classList.toggle("open");
+    };
 
-  const lector = new FileReader();
+    function cargarFoto(event) {
+      const archivo = event.target.files[0];
+      if (!archivo) return;
 
-  lector.onload = function(e) {
-    const imagen = document.getElementById("imagenTrabajo");
-    const mensaje = document.getElementById("mensajeFoto");
+      const lector = new FileReader();
+      lector.onload = function(e) {
+        const imagen = document.getElementById("imagenTrabajo");
+        const mensaje = document.getElementById("mensajeFoto");
 
-    imagen.src = e.target.result;
-    imagen.style.display = "block";
-    mensaje.style.display = "none";
-  };
-
-  lector.readAsDataURL(archivo);
-}
-</script>
+        imagen.src = e.target.result;
+        imagen.style.display = "block";
+        mensaje.style.display = "none";
+      };
+      lector.readAsDataURL(archivo);
+    }
+  </script>
+</body>
+</html>
