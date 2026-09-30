@@ -73,7 +73,39 @@ z-index:100;
       linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),
       radial-gradient(circle at 50% 45%,#c9b99f 0 15%,transparent 16%),
       linear-gradient(145deg,#b6a28c,#6d655d 45%,#27343a);box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .hero-photo:before{content:"FOTO PRINCIPAL DE TU TRABAJO";position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:#fff;font-weight:800;letter-spacing:1px;background:linear-gradient(transparent 55%,rgba(0,0,0,.45))}
+.hero-photo:before{
+  display:none !important;
+  content:none !important;
+}
+
+.foto-boton{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  cursor:pointer;
+  color:#fff;
+  text-align:center;
+  font-size:18px;
+  background:rgba(0,0,0,.20);
+}
+
+.foto-boton strong{
+  font-size:20px;
+}
+
+.foto-boton span{
+  font-size:14px;
+  opacity:.9;
+}
+
+#fotoTrabajo{
+  display:none;
+}
     section{padding:85px 0}
     .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
     .section-head h2{font-family:Georgia,serif;font-size:clamp(32px,4vw,46px);margin:8px 0 12px;color:var(--navy)}
