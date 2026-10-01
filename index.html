@@ -1,316 +1,160 @@
-<!doctype html>
-<html lang="es-MX">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Velvet Home Care — limpieza profesional a domicilio de salas, colchones, sillas, tapicería, alfombras y tapetes.">
-  <meta name="theme-color" content="#071d2b">
-  <title>Velvet Home Care | Limpieza profesional a domicilio</title>
-  <style>
-    :root{
-      --navy:#071d2b; --navy2:#0d3043; --cream:#f8f4ec; --gold:#d9b56d;
-      --green:#12b96f; --ink:#18242b; --muted:#65727a; --white:#fff;
-      --shadow:0 18px 50px rgba(7,29,43,.13); --radius:22px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-    .container{width:min(1120px,92%);margin:auto}
-    .topbar{background:var(--navy);color:#fff;font-size:13px}
-    .topbar .container{display:flex;justify-content:space-between;gap:15px;padding:8px 0}
-    header{position:sticky;top:0;z-index:50;background:rgba(7,29,43,.96);backdrop-filter:blur(10px);color:#fff}
-    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:21px;letter-spacing:.8px}
-    .brand-mark{width:40px;height:40px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:700}
-    .navlinks{display:flex;gap:22px;font-size:14px}
-    .navlinks a:hover{color:var(--gold)}
-    .menu{display:none;background:none;border:0;color:#fff;font-size:27px}
-
-    .navlinks.open{
-      display:flex;
-      position:absolute;
-      top:72px;
-      right:20px;
-      flex-direction:column;
-      background:var(--navy);
-      padding:20px;
-      border-radius:15px;
-      z-index:100;
-    }
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:14px 22px;font-weight:800;cursor:pointer;transition:.2s}
-    .btn-green{background:var(--green);color:#fff;box-shadow:0 8px 25px rgba(18,185,111,.25)}
-    .btn-green:hover{transform:translateY(-2px);filter:brightness(1.04)}
-    .btn-gold{background:var(--gold);color:var(--navy)}
-    .btn-outline{border:1px solid rgba(255,255,255,.25);color:#fff;background:transparent}
-    .hero{position:relative;overflow:hidden;background:
-      radial-gradient(circle at 80% 25%,rgba(217,181,109,.24),transparent 30%),
-      linear-gradient(115deg,#061824 0%,#0b2c3f 58%,#143e50 100%);color:#fff}
-    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,29,43,.98) 0%,rgba(7,29,43,.82) 46%,rgba(7,29,43,.18) 100%);pointer-events:none}
-    .hero-inner{position:relative;z-index:1;min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}
-    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px}
-    h1{font-family:Georgia,serif;font-size:clamp(42px,6vw,70px);line-height:1.03;margin:14px 0 18px;max-width:680px}
-    .hero p{font-size:20px;color:#e7eef2;max-width:610px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
-    .trust{display:flex;gap:20px;flex-wrap:wrap;color:#d7e1e6;font-size:14px}
-    
-    .hero-photo{
-      height:470px;
-      border-radius:30px;
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      border-radius:30px;
-    }
-
-    section{padding:85px 0}
-    .section-head{text-align:center;max-width:720px;margin:0 auto 42px}
-    .section-head h2{font-family:Georgia,serif;font-size:clamp(32px,4vw,46px);margin:8px 0 12px;color:var(--navy)}
-    .section-head p{color:var(--muted);font-size:17px}
-    .cream{background:var(--cream)}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:#fff;border:1px solid #e9e5dc;border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 30px rgba(7,29,43,.06)}
-    .service-img{height:190px;overflow:hidden;}
-    .service-img img{width:100%;height:100%;object-fit:cover;}
-    .card-body{padding:24px}
-    .card h3{margin:0 0 8px;color:var(--navy);font-size:21px}
-    .card p{margin:0;color:var(--muted)}
-    .feature{background:var(--navy);color:#fff}
-    .feature-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px}
-    .feature h2{font-family:Georgia,serif;font-size:clamp(34px,4vw,52px);margin:8px 0 15px}
-    .feature p{color:#d8e3e8;font-size:18px}
-    .feature-img{min-height:360px;border-radius:28px;overflow:hidden;}
-    .feature-img img{width:100%;height:100%;object-fit:cover;border-radius:28px;}
-    .before-after{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-    .ba{border-radius:20px;overflow:hidden;background:#eee;border:1px solid #e7e7e7}
-    .ba-img{height:270px;overflow:hidden;}
-    .ba-img img{width:100%;height:100%;object-fit:cover;}
-    .ba small{display:block;padding:14px 18px;font-weight:800;color:var(--navy)}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .step{background:#fff;border:1px solid #e9e5dc;border-radius:20px;padding:25px;position:relative}
-    .num{font-size:13px;color:var(--gold);font-weight:900}
-    .step h3{margin:12px 0 6px;color:var(--navy)}
-    .step p{color:var(--muted);font-size:14px;margin:0}
-    .why{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .why-item{background:#fff;border-radius:18px;padding:22px;border:1px solid #e8e4dc}
-    .why-item h3{margin:0 0 6px;color:var(--navy)}
-    .why-item p{margin:0;color:var(--muted)}
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .review{background:#fff;border:1px solid #e7e2d9;border-radius:20px;padding:25px}
-    .stars{color:#d6a949;letter-spacing:2px}
-    .review p{font-size:16px}
-    .review b{color:var(--navy)}
-    .coverage{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
-    .coverage-box{background:var(--navy);color:#fff;border-radius:25px;padding:35px}
-    .coverage-box h3{font-family:Georgia,serif;font-size:32px;margin-top:0}
-    .faq{max-width:820px;margin:auto}
-    details{border-bottom:1px solid #ddd;padding:18px 0}
-    summary{cursor:pointer;font-weight:800;color:var(--navy)}
-    details p{color:var(--muted);margin:12px 0 0}
-    .final{background:linear-gradient(120deg,#efe4cf,#faf7f0);text-align:center}
-    .final h2{font-family:Georgia,serif;color:var(--navy);font-size:clamp(34px,5vw,54px);margin:0 auto 12px;max-width:800px}
-    .final p{color:var(--muted);font-size:18px}
-    footer{background:var(--navy);color:#fff;padding:50px 0 80px}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
-    footer h3{margin-top:0;color:var(--gold)}
-    footer p,footer li{color:#c9d4da;font-size:14px}
-    footer ul{list-style:none;padding:0;margin:0;line-height:2}
-    .copy{border-top:1px solid rgba(255,255,255,.15);margin-top:35px;padding-top:20px;color:#9fb0b8;font-size:12px}
-    .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:27px;box-shadow:0 10px 28px rgba(0,0,0,.25)}
-    .note{font-size:12px;color:#7b858b;margin-top:12px}
-    @media(max-width:900px){
-      .navlinks{display:none}.menu{display:block}
-      .hero-inner,.feature-grid,.coverage{grid-template-columns:1fr}
-      .hero-inner{padding:70px 0;min-height:auto}.hero-photo{height:320px}
-      .services{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}
-      .reviews{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
-    }
-    @media(max-width:600px){
-      .topbar .container{justify-content:center;text-align:center}
-      .topbar .container span:last-child{display:none}
-      nav{height:62px}.brand{font-size:18px}.brand-mark{width:34px;height:34px}
-      .hero-inner{padding:52px 0}.hero p{font-size:17px}h1{font-size:43px}
-      .hero-actions .btn{width:100%}.hero-photo{height:270px}
-      section{padding:62px 0}.services,.before-after,.why,.steps{grid-template-columns:1fr}
-      .ba-img{height:220px}.footer-grid{grid-template-columns:1fr}
-      .float-wa{width:56px;height:56px;right:14px;bottom:14px}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Home Care | Limpieza Profunda de Salas y Colchones en CDMX</title>
+    <meta name="description" content="Servicio profesional de limpieza de salas, sillones, colchones y alfombras a domicilio en toda la Ciudad de México. ¡Cotiza por WhatsApp!">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .hero h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.7rem;
+            font-size: 1.25rem;
+        }
+        .service-card p {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark-color);
+            color: white;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <script>
-    const WHATSAPP_NUMBER = "525512304762";
-    const whatsappText = encodeURIComponent("Hola Velvet Home Care. Quiero solicitar una cotización. Te envío fotos de lo que necesito limpiar.");
-    function waUrl(){ return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + whatsappText; }
-    document.addEventListener("DOMContentLoaded",()=>{
-      document.querySelectorAll("[data-wa]").forEach(a=>{
-        if(WHATSAPP_NUMBER.includes("X")){
-          a.href="#contacto";
-          a.addEventListener("click",(e)=>{e.preventDefault(); alert("Para activar WhatsApp, cambia WHATSAPP_NUMBER por tu número en la parte superior del archivo.");});
-        }else a.href=waUrl();
-      });
-    });
-  </script>
 
-  <div class="topbar"><div class="container"><span>✨ Limpieza profesional a domicilio</span><span>Ciudad de México y zonas de servicio</span></div></div>
+    <header>
+        <h1>Velvet Home Care</h1>
+        <p>Limpieza y desinfección profesional a domicilio en CDMX</p>
+    </header>
 
-  <header>
-    <nav class="container">
-      <a class="brand" href="#inicio"><span class="brand-mark">V</span><span>VELVET HOME CARE</span></a>
-      <div class="navlinks">
-        <a href="#servicios">Servicios</a><a href="#resultados">Antes y Después</a><a href="#opiniones">Opiniones</a><a href="#faq">Preguntas</a><a href="#contacto">Contacto</a>
-      </div>
-      <a class="btn btn-green" data-wa href="#contacto">💬 Cotizar por WhatsApp</a>
-      <button class="menu" aria-label="Menú">☰</button>
-    </nav>
-  </header>
+    <div class="container">
+        <section class="hero">
+            <h2>Devuélvele la frescura y suavidad a tus muebles</h2>
+            <p>Especialistas en limpieza profunda de salas, sillones, colchones y alfombras directamente en tu hogar con productos seguros y tecnología profesional.</p>
+            
+            <!-- Botón de WhatsApp conectado a tu número 55 1230 4762 -->
+            <a href="https://wa.me/525512304762?text=Hola,%20me%20interesa%20cotizar%20un%20servicio%20de%20limpieza%20a%20domicilio." class="btn-whatsapp" target="_blank">
+                📱 Cotizar por WhatsApp
+            </a>
+        </section>
 
-  <main id="inicio">
-    <section class="hero">
-      <div class="container hero-inner">
-        <div>
-          <div class="eyebrow">Velvet Home Care</div>
-          <h1>Tu hogar merece sentirse limpio de verdad.</h1>
-          <p>Limpieza profesional a domicilio de salas, colchones, sillas, tapicería, alfombras y tapetes.</p>
-          <div class="hero-actions">
-            <a class="btn btn-green" data-wa href="#contacto">💬 COTIZAR POR WHATSAPP</a>
-            <a class="btn btn-outline" href="#servicios">Ver servicios</a>
-          </div>
-          <div class="trust"><span>🏠 Servicio a domicilio</span><span>✨ Atención personalizada</span></div>
-        </div>
-
-        <div class="hero-photo">
-          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80" alt="Sala limpia Velvet Home Care">
-        </div>
-
-      </div>
-    </section>
-
-    <section id="servicios" class="cream">
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Nuestros servicios</div><h2>Limpieza para lo que más usas</h2><p>Servicios profesionales a domicilio con resultados visibles desde el primer día.</p></div>
-        <div class="services">
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Salas y sillones"></div><div class="card-body"><h3>🛋️ Salas y sillones</h3><p>Limpieza profunda para recuperar frescura, higiene y excelente apariencia.</p></div></article>
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Colchones"></div><div class="card-body"><h3>🛏️ Colchones</h3><p>Desinfección y eliminación de ácaros, polvo y malos olores acumulados.</p></div></article>
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=600&q=80" alt="Sillas"></div><div class="card-body"><h3>🪑 Sillas</h3><p>Atención especializada para sillas de comedor, oficina y tapizados finos.</p></div></article>
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Tapicería"></div><div class="card-body"><h3>🧵 Tapicería</h3><p>Tratamiento y cuidado delicado para diversos tipos de telas y texturas.</p></div></article>
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=600&q=80" alt="Alfombras y tapetes"></div><div class="card-body"><h3>🧹 Alfombras y tapetes</h3><p>Extracción profunda de suciedad, manchas y polvo en fibras residenciales.</p></div></article>
-          <article class="card"><div class="service-img"><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Sanitización"></div><div class="card-body"><h3>✨ Sanitización</h3><p>Complemento de desinfección profunda para un ambiente libre de bacterias.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="feature">
-      <div class="container feature-grid">
-        <div><div class="eyebrow">La diferencia se nota</div><h2>Más limpieza, más bienestar.</h2><p>El uso diario desgasta tus muebles. Con un mantenimiento profesional eliminamos manchas y devolvemos la vida a tus espacios.</p><a class="btn btn-gold" data-wa href="#contacto">💬 QUIERO COTIZAR</a></div>
-        <div class="feature-img"><img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=800&q=80" alt="Proceso real de limpieza"></div>
-      </div>
-    </section>
-
-    <section id="resultados">
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Resultados reales</div><h2>Antes y Después</h2><p>Resultados sorprendentes en la restauración y limpieza de muebles.</p></div>
-        <div class="before-after">
-          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Antes y después sala"></div><small>Sala / sillón</small></div>
-          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Antes y después colchón"></div><small>Colchón</small></div>
-          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=600&q=80" alt="Antes y después silla"></div><small>Silla</small></div>
-          <div class="ba"><div class="ba-img"><img src="https://images.unsplash.com/photo-1575414003591-ece8d0416c7a?auto=format&fit=crop&w=600&q=80" alt="Antes y después tapete"></div><small>Tapete / alfombra</small></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cream">
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Fácil y directo</div><h2>¿Cómo funciona?</h2><p>Solo sigue estos cuatro pasos.</p></div>
-        <div class="steps">
-          <div class="step"><div class="num">01</div><h3>Envíanos fotos</h3><p>Mándanos fotografías del mueble, colchón o superficie que deseas limpiar.</p></div>
-          <div class="step"><div class="num">02</div><h3>Recibe tu cotización</h3><p>Revisamos lo que necesitas y te orientamos sobre el servicio.</p></div>
-          <div class="step"><div class="num">03</div><h3>Agenda tu servicio</h3><p>Elegimos contigo el día y horario disponible.</p></div>
-          <div class="step"><div class="num">04</div><h3>Disfruta tus muebles limpios</h3><p>Realizamos el trabajo directamente en tu domicilio.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Velvet Home Care</div><h2>¿Por qué elegirnos?</h2></div>
-        <div class="why">
-          <div class="why-item"><h3>🏠 Servicio a domicilio</h3><p>Vamos hasta tu hogar dentro de nuestra zona de cobertura.</p></div>
-          <div class="why-item"><h3>✨ Atención personalizada</h3><p>Consideramos el tipo de pieza, material y condición del servicio.</p></div>
-          <div class="why-item"><h3>🧼 Proceso profesional</h3><p>Trabajamos buscando una limpieza profunda y cuidadosa.</p></div>
-          <div class="why-item"><h3>📲 Cotización por WhatsApp</h3><p>Envíanos fotografías y cuéntanos qué necesitas limpiar.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="opiniones" class="cream">
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Opiniones</div><h2>Lo que dicen nuestros clientes</h2><p>La satisfacción de nuestros clientes es nuestra mejor garantía.</p></div>
-        <div class="reviews">
-          <div class="review"><div class="stars">★★★★★</div><p>“Excelente servicio. Mi sala quedó súper limpia y oliendo muy fresco. Puntuales y amables.”</p><b>Cliente de Velvet Home Care</b></div>
-          <div class="review"><div class="stars">★★★★★</div><p>“Limpiaron un colchón que pensaba tirar y quedó como nuevo. Súper recomendados.”</p><b>Cliente de Velvet Home Care</b></div>
-          <div class="review"><div class="stars">★★★★★</div><p>“Atención de primera desde que coticé por WhatsApp hasta que terminaron el trabajo en casa.”</p><b>Cliente de Velvet Home Care</b></div>
-        </div>
-        <div style="text-align:center;margin-top:28px"><a class="btn btn-outline" style="background:var(--navy)" href="https://g.page/r/CfYDF0gXfQPiEBM/review" target="_blank" rel="noopener">⭐ VER / DEJAR RESEÑA EN GOOGLE</a></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container coverage">
-        <div class="coverage-box"><div class="eyebrow">Zona de servicio</div><h3>Atención a domicilio</h3><p>Atendemos servicios de limpieza residencial dentro de nuestra zona de cobertura.</p><p>📍 Ciudad de México y zonas de servicio disponibles.</p><p>Si no estás seguro de si llegamos a tu domicilio, escríbenos y te confirmamos.</p></div>
-        <div class="card" style="padding:35px"><h3 style="color:var(--navy);font-family:Georgia,serif;font-size:30px;margin-top:0">Solicita una cotización</h3><p style="color:var(--muted)">La forma más rápida es enviarnos fotografías del servicio que necesitas.</p><a class="btn btn-green" data-wa href="#contacto">💬 ENVIAR FOTOS POR WHATSAPP</a></div>
-      </div>
-    </section>
-
-    <section id="faq" class="cream">
-      <div class="container">
-        <div class="section-head"><div class="eyebrow">Preguntas frecuentes</div><h2>Antes de contratar</h2></div>
-        <div class="faq">
-          <details><summary>¿Cómo solicito una cotización?</summary><p>Escríbenos por WhatsApp y envíanos fotografías del servicio que necesitas.</p></details>
-          <details><summary>¿Van hasta mi domicilio?</summary><p>Sí, ofrecemos servicio a domicilio dentro de nuestra zona de cobertura.</p></details>
-          <details><summary>¿Qué muebles limpian?</summary><p>Principalmente salas, sillones, colchones, sillas, cabeceras, tapicería, alfombras y tapetes.</p></details>
-          <details><summary>¿Puedo enviar fotografías antes de contratar?</summary><p>Sí. Las fotografías ayudan a conocer mejor el estado y características de la pieza.</p></details>
-          <details><summary>¿Todas las manchas pueden eliminarse?</summary><p>No todas las manchas responden igual. El resultado depende del tipo de mancha, antigüedad, material y condiciones de la pieza.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="final">
-      <div class="container">
-        <h2>¿Listo para darle una nueva apariencia a tus muebles?</h2>
-        <p>Envíanos una foto y solicita tu cotización.</p>
-        <a class="btn btn-green" data-wa href="#contacto">💬 COTIZAR POR WHATSAPP</a>
-        <p class="note">WhatsApp: 55 1230 4762</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div><div class="brand"><span class="brand-mark">V</span><span>VELVET HOME CARE</span></div><p>Limpieza profesional a domicilio.</p></div>
-      <div><h3>Servicios</h3><ul><li>Salas y sillones</li><li>Colchones</li><li>Sillas</li><li>Tapicería</li><li>Alfombras y tapetes</li></ul></div>
-      <div><h3>Contacto</h3><ul><li><a data-wa href="#contacto">WhatsApp</a></li><li><a href="https://g.page/r/CfYDF0gXfQPiEBM/review" target="_blank" rel="noopener">Google</a></li></ul></div>
-      <div><h3>Ubicación</h3><p>Ciudad de México y zonas de servicio.</p></div>
+        <section>
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 1.5rem;">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Limpieza de Salas</h3>
+                    <p>Lavado profundo y desinfección de salas completas o modulares, eliminando ácaros, manchas difíciles y malos olores.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Lavado de Colchones</h3>
+                    <p>Eliminación profunda de polvo, sudor y ácaros en colchones individuales, matrimoniales, Queen y King Size.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Sillones y Sillas</h3>
+                    <p>Mantenimiento especializado para poltronas, comedores y sillas tapizadas, cuidando cada fibra de la tela.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tapetes y Alfombras</h3>
+                    <p>Retiro de suciedad incrustada y alérgenos directamente en alfombras fijas o tapetes decorativos.</p>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="container copy">© 2026 Velvet Home Care. Todos los derechos reservados.</div>
-  </footer>
 
-  <a class="float-wa" data-wa href="#contacto" aria-label="Cotizar por WhatsApp">💬</a> 
+    <footer>
+        <p>&copy; 2026 Velvet Home Care. Cobertura en toda la Ciudad de México (CDMX).</p>
+    </footer>
 
-  <script>
-    const menu = document.querySelector(".menu");
-    const navlinks = document.querySelector(".navlinks");
-
-    menu.onclick = function() {
-      navlinks.classList.toggle("open");
-    };
-  </script>
 </body>
 </html>
