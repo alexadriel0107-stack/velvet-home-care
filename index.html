@@ -76,12 +76,6 @@
             color: var(--accent-gold);
         }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
         .header-wa-btn {
             background-color: var(--accent-green);
             color: white;
@@ -96,18 +90,31 @@
             box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero / Bienvenida */
         .hero {
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
             background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+        }
+
+        .welcome-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
         .hero h1 {
             font-size: 24px;
             font-weight: 600;
             color: var(--text-light);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.3;
         }
 
@@ -115,6 +122,7 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 25px;
+            line-height: 1.5;
         }
 
         .btn-whatsapp-main {
@@ -126,14 +134,9 @@
             border-radius: 30px;
             font-weight: bold;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 12px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .btn-whatsapp-main:active {
-            transform: scale(0.98);
         }
 
         .btn-outline {
@@ -150,13 +153,30 @@
             margin-bottom: 25px;
         }
 
-        .features-badges {
+        /* Sobre la empresa / Confianza */
+        .about-company {
+            padding: 25px 20px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .about-company h3 {
+            color: var(--accent-gold);
+            font-size: 16px;
+            margin-bottom: 8px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .about-company p {
             font-size: 13px;
             color: #cbd5e1;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Banner Principal de Imagen */
@@ -181,40 +201,7 @@
             object-fit: cover;
         }
 
-        /* Sección de Beneficios de Confianza */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding: 0 20px 35px 20px;
-        }
-
-        .benefit-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .benefit-card span {
-            font-size: 22px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .benefit-card h5 {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-bottom: 3px;
-        }
-
-        .benefit-card p {
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        /* Sección Clara de Servicios */
+        /* Sección de Servicios Detallada (Fondo Claro) */
         .services-section {
             background-color: var(--bg-cream);
             color: var(--text-dark);
@@ -272,13 +259,10 @@
 
         .service-img-preview {
             width: 100%;
-            height: 180px;
+            height: 170px;
             background: #e2e8f0;
             border-radius: 12px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .service-img-preview img {
@@ -287,36 +271,50 @@
             object-fit: cover;
         }
 
-        /* Sección de Testimonios / Garantía */
-        .trust-section {
-            background-color: #f3efe6;
-            padding: 35px 20px;
+        /* Redes Sociales y Google Maps */
+        .social-section {
+            background-color: #0b192c;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            color: var(--text-dark);
         }
 
-        .trust-section h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #0b2545;
+        .social-section h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
         }
 
-        .trust-section p {
+        .social-section p {
             font-size: 13px;
-            color: #555;
+            color: var(--text-muted);
             margin-bottom: 20px;
         }
 
-        .btn-whatsapp-footer {
-            display: inline-block;
-            background-color: var(--accent-green);
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: bold;
+            padding: 10px 16px;
+            border-radius: 25px;
             text-decoration: none;
-            font-size: 15px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         /* Footer */
@@ -346,26 +344,26 @@
                 <strong>HOME CARE</strong>
             </div>
         </div>
-        <div class="header-actions">
-            <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="header-wa-btn" target="_blank">
-                💬 Cotizar
-            </a>
-        </div>
+        <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="header-wa-btn" target="_blank">
+            💬 Cotizar
+        </a>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero / Bienvenida -->
     <section class="hero">
-        <h1>Limpieza profesional y profunda para tu hogar</h1>
-        <p>Especialistas en la renovación de salas, colchones, sillas y tapetes a domicilio.</p>
+        <div class="welcome-badge">✨ BIENVENIDO A VELVET HOME CARE</div>
+        <h1>Limpieza y Restauración Profesional a Domicilio</h1>
+        <p>Expertos comprometidos con devolverle la higiene, el aroma y la vida a los textiles de tu hogar y vehículo con total confianza y garantía.</p>
         
         <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="btn-whatsapp-main" target="_blank">
             💬 COTIZAR POR WHATSAPP DIRECTO
         </a>
-        <a href="#servicios" class="btn-outline">Ver catálogo de servicios</a>
+        <a href="#servicios" class="btn-outline">Ver catálogo completo</a>
 
-        <div class="features-badges">
-            <span>🏠 Servicio a Domicilio</span>
-            <span>✨ Garantía de Calidad</span>
+        <!-- Información sobre la empresa y confianza -->
+        <div class="about-company">
+            <h3>🛡️ Empresa 100% Confiable y Profesional</h3>
+            <p>Utilizamos maquinaria especializada de extracción profunda y productos seguros libres de químicos agresivos que cuidan tu salud, a tus mascotas y tus muebles. Vamos directamente hasta la puerta de tu hogar.</p>
         </div>
     </section>
 
@@ -376,36 +374,24 @@
         </div>
     </div>
 
-    <!-- Beneficios Rápidos -->
-    <div class="benefits-grid">
-        <div class="benefit-card">
-            <span>🦠</span>
-            <h5>Eliminación de Ácaros</h5>
-            <p>Protege la salud de tu familia</p>
-        </div>
-        <div class="benefit-card">
-            <span>🧼</span>
-            <h5>Manchas Difíciles</h5>
-            <p>Tratamientos especializados</p>
-        </div>
-    </div>
-
-    <!-- Sección Clara de Servicios -->
+    <!-- Sección de Servicios con Más Detalles y Fotos -->
     <div class="services-section" id="servicios">
         <div class="section-header">
-            <span>NUESTROS SERVICIOS</span>
-            <h2>Limpieza para lo que más usas</h2>
-            <p>Devolvemos la frescura, el aroma agradable y la apariencia original a tus muebles.</p>
+            <span>NUESTROS SERVICIOS ESPECIALIZADOS</span>
+            <h2>Soluciones de limpieza para cada espacio</h2>
+            <p>Trabajamos con técnicas profesionales adaptadas a cada tipo de material o tapicería.</p>
         </div>
 
+        <!-- Salas y Sillones -->
         <div class="service-card">
             <h4>Salas y Sillones</h4>
-            <p>Eliminamos ácaros, manchas profundas y malos olores, cuidando las fibras más delicadas de tus sillones para dejarlos como nuevos.</p>
+            <p>Eliminamos ácaros, manchas profundas y malos olores, cuidando y protegiendo las fibras más delicadas de tu sala.</p>
             <div class="service-img-preview">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Salas y Sillones">
             </div>
         </div>
 
+        <!-- Colchones -->
         <div class="service-card">
             <h4>Colchones</h4>
             <p>Desinfección profunda por extracción para garantizar un descanso completamente limpio, libre de alérgenos, polvo y sudor acumulado.</p>
@@ -414,22 +400,62 @@
             </div>
         </div>
 
+        <!-- Sillas -->
         <div class="service-card">
-            <h4>Alfombras y Tapetes</h4>
-            <p>Extracción profunda de polvo incrustado y revitalización total de colores y texturas, protegiendo el tejido original.</p>
+            <h4>Sillas de Comedor y Oficina</h4>
+            <p>Renovamos la tapicería de tus sillas de comedor, juntas o estudio, eliminando manchas de uso diario y otorgando una vista impecable.</p>
             <div class="service-img-preview">
-                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80" alt="Alfombras y Tapetes">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Sillas">
+            </div>
+        </div>
+
+        <!-- Love Seat y Reposet -->
+        <div class="service-card">
+            <h4>Love Seat y Reposet</h4>
+            <p>Cuidado especial para tus sillones individuales, reclinables y love seats, restaurando su comodidad y aspecto original.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Love Seat y Reposet">
+            </div>
+        </div>
+
+        <!-- Salas de Piel -->
+        <div class="service-card">
+            <h4>Salas de Piel (Limpieza e Hidratación)</h4>
+            <p>Tratamiento especializado de limpieza profunda e hidratación de pieles finas para evitar agrietamientos y devolverles su brillo natural.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Salas de Piel">
+            </div>
+        </div>
+
+        <!-- Vestiduras de Autos -->
+        <div class="service-card">
+            <h4>Vestiduras de Autos</h4>
+            <p>Lavado y desinfección integral de asientos, alfombras y paneles de puertas de tu vehículo, eliminando manchas difíciles y olores incrustados.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Vestiduras de Autos">
+            </div>
+        </div>
+
+        <!-- Tapicería en General y Tapetes -->
+        <div class="service-card">
+            <h4>Tapetes y Tapicería en General</h4>
+            <p>Extracción de polvo incrustado en tapetes y todo tipo de superficies tapizadas, revitalizando texturas y colores originales.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80" alt="Tapetes">
             </div>
         </div>
     </div>
 
-    <!-- Sección de Cierre / Confianza -->
-    <div class="trust-section">
-        <h3>¿Listo para renovar tus espacios?</h3>
-        <p>Escríbenos ahora mismo por WhatsApp y obtén una cotización rápida enviando una foto de tu mueble.</p>
-        <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="btn-whatsapp-footer" target="_blank">
-            💬 Iniciar Chat de Cotización
-        </a>
+    <!-- Sección de Redes Sociales y Google Maps -->
+    <div class="social-section">
+        <h3>Encuéntranos en Internet</h3>
+        <p>Visita nuestras redes sociales, mira reseñas y conoce más de nuestro trabajo diario.</p>
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/share/1F5r3B9wJp/" class="social-btn" target="_blank">📘 Facebook</a>
+            <a href="https://www.instagram.com/velvethomecaremx?stkn=MTRnc3psdXBob3RpNg==" class="social-btn" target="_blank">📸 Instagram</a>
+            <a href="https://www.tiktok.com/@velvethomecare" class="social-btn" target="_blank">🎬 TikTok</a>
+            <a href="https://maps.app.goo.gl/yvj3NtFg9BhY9ve58" class="social-btn" target="_blank">📍 Google Maps</a>
+        </div>
     </div>
 
     <!-- Footer -->
