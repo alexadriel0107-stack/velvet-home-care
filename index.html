@@ -3,247 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvet Home Care - Limpieza Profesional</title>
+    <title>Velvet Home Care - Limpieza Profesional de Tapicería y Colchones</title>
     <style>
+        :root {
+            --primary-dark: #0b192c;
+            --secondary-dark: #1e293b;
+            --accent-gold: #d4af37;
+            --accent-green: #25d366;
+            --text-light: #ffffff;
+            --text-muted: #94a3b8;
+            --bg-cream: #fdfbf7;
+            --text-dark: #0f172a;
+        }
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0b192c;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
+        /* Header Profesional */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background-color: #0b192c;
-            position: relative;
+            background-color: var(--primary-dark);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-badge {
-            width: 35px;
-            height: 35px;
-            border: 1px solid #d4af37;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #d4af37;
+            color: var(--accent-gold);
             font-weight: bold;
+            font-size: 18px;
         }
 
         .logo-text {
-            font-size: 10px;
+            font-size: 11px;
             letter-spacing: 2px;
             line-height: 1.2;
-            color: #ffffff;
+            color: var(--text-light);
         }
 
         .logo-text strong {
             display: block;
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
         }
 
-        .menu-btn {
-            font-size: 22px;
-            cursor: pointer;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        /* Botón flotante superior de WhatsApp */
-        .floating-wa-badge {
-            position: absolute;
-            top: 10px;
-            right: 60px;
-            background-color: #25d366;
+        .header-wa-btn {
+            background-color: var(--accent-green);
             color: white;
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 20px;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: bold;
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
         }
 
+        /* Hero Section */
         .hero {
-            padding: 15px 20px 25px 20px;
+            padding: 30px 20px;
             text-align: center;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
         }
 
-        .hero p.intro-text {
-            font-size: 15px;
-            color: #d0d7de;
-            margin-bottom: 20px;
-            line-height: 1.4;
+        .hero h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
-        .btn-whatsapp {
+        .hero p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .btn-whatsapp-main {
             display: block;
-            background-color: #25d366;
+            background-color: var(--accent-green);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             border-radius: 30px;
             font-weight: bold;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px;
             margin-bottom: 12px;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s;
         }
 
-        .btn-services {
+        .btn-whatsapp-main:active {
+            transform: scale(0.98);
+        }
+
+        .btn-outline {
             display: block;
             background-color: transparent;
             color: white;
             text-align: center;
             padding: 14px;
             border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
             text-decoration: none;
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
-
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 13px;
-            color: #b0c4de;
+            font-size: 14px;
             margin-bottom: 25px;
         }
 
-        /* Imagen principal del sofá */
-        .sofa-preview {
+        .features-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        /* Banner Principal de Imagen */
+        .showcase-banner {
             width: 100%;
             padding: 0 20px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        .sofa-img-box {
+        .showcase-img-box {
             width: 100%;
-            height: 200px;
-            background: #203a43;
+            height: 220px;
             border-radius: 16px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
-        .sofa-img-box img {
+        .showcase-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Tarjeta de foto de trabajo */
-        .photo-card {
-            background: linear-gradient(145deg, #1e293b, #0f172a);
-            border-radius: 16px;
-            padding: 35px 20px;
-            margin: 0 20px 30px 20px;
+        /* Sección de Beneficios de Confianza */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 20px 35px 20px;
+        }
+
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .camera-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px auto;
-            font-size: 20px;
+        .benefit-card span {
+            font-size: 22px;
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .photo-card h3 {
-            margin: 0 0 5px 0;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
-
-        .photo-card p {
-            margin: 0;
-            color: #94a3b8;
+        .benefit-card h5 {
             font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 3px;
+        }
+
+        .benefit-card p {
+            font-size: 11px;
+            color: var(--text-muted);
         }
 
         /* Sección Clara de Servicios */
         .services-section {
-            background-color: #fdfbf7;
-            color: #1e293b;
-            padding: 40px 20px;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            padding: 45px 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
 
-        .services-header {
+        .section-header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .services-header span {
+        .section-header span {
             font-size: 11px;
             letter-spacing: 2px;
             color: #b8860b;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
-        .services-header h2 {
+        .section-header h2 {
             font-size: 24px;
-            margin: 5px 0 10px 0;
-            color: #0f172a;
+            margin: 6px 0 10px 0;
+            color: var(--text-dark);
         }
 
-        .services-header p {
+        .section-header p {
             font-size: 13px;
             color: #64748b;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .service-box {
+        .service-card {
             background: #ffffff;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
         }
 
-        .service-box h4 {
+        .service-card h4 {
             margin: 0 0 8px 0;
             color: #0b2545;
             font-size: 18px;
         }
 
-        .service-box p {
-            margin: 0;
+        .service-card p {
+            margin: 0 0 15px 0;
             font-size: 13px;
             color: #475569;
-            line-height: 1.4;
+            line-height: 1.5;
+        }
+
+        .service-img-preview {
+            width: 100%;
+            height: 180px;
+            background: #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-img-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sección de Testimonios / Garantía */
+        .trust-section {
+            background-color: #f3efe6;
+            padding: 35px 20px;
+            text-align: center;
+            color: var(--text-dark);
+        }
+
+        .trust-section h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #0b2545;
+        }
+
+        .trust-section p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp-footer {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #07101a;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 12px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer strong {
+            color: var(--accent-gold);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="logo-container">
             <div class="logo-badge">V</div>
@@ -252,62 +346,97 @@
                 <strong>HOME CARE</strong>
             </div>
         </div>
-        
-        <div class="floating-wa-badge">
-            💬 Cotizar por WhatsApp
+        <div class="header-actions">
+            <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="header-wa-btn" target="_blank">
+                💬 Cotizar
+            </a>
         </div>
-
-        <div class="menu-btn">☰</div>
     </header>
 
-    <div class="hero">
-        <p class="intro-text">Limpieza profesional para colchones, sillas, tapicería y tapetes.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Limpieza profesional y profunda para tu hogar</h1>
+        <p>Especialistas en la renovación de salas, colchones, sillas y tapetes a domicilio.</p>
         
-        <a href="https://wa.me/TU_NUMERO" class="btn-whatsapp">💬 COTIZAR POR WHATSAPP</a>
-        <a href="#servicios" class="btn-services">Ver servicios</a>
+        <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="btn-whatsapp-main" target="_blank">
+            💬 COTIZAR POR WHATSAPP DIRECTO
+        </a>
+        <a href="#servicios" class="btn-outline">Ver catálogo de servicios</a>
 
-        <div class="features">
-            <span>🏠 Servicio a domicilio</span>
-            <span>✨ Atención personalizada</span>
+        <div class="features-badges">
+            <span>🏠 Servicio a Domicilio</span>
+            <span>✨ Garantía de Calidad</span>
+        </div>
+    </section>
+
+    <!-- Imagen Principal Destacada -->
+    <div class="showcase-banner">
+        <div class="showcase-img-box">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Sala impecable Velvet Home Care">
         </div>
     </div>
 
-    <!-- Imagen de muestra de sala -->
-    <div class="sofa-preview">
-        <div class="sofa-img-box">
-            <!-- Aquí puedes colocar la ruta de tu imagen de la sala -->
-            <img src="ruta_de_tu_imagen_sala.jpg" alt="Sala Velvet Home Care" onerror="this.style.display='none'">
+    <!-- Beneficios Rápidos -->
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <span>🦠</span>
+            <h5>Eliminación de Ácaros</h5>
+            <p>Protege la salud de tu familia</p>
+        </div>
+        <div class="benefit-card">
+            <span>🧼</span>
+            <h5>Manchas Difíciles</h5>
+            <p>Tratamientos especializados</p>
         </div>
     </div>
 
-    <div class="photo-card">
-        <div class="camera-icon">📷</div>
-        <h3>AGREGAR FOTO</h3>
-        <p>Sube una foto de tu mejor trabajo</p>
-    </div>
-
+    <!-- Sección Clara de Servicios -->
     <div class="services-section" id="servicios">
-        <div class="services-header">
+        <div class="section-header">
             <span>NUESTROS SERVICIOS</span>
             <h2>Limpieza para lo que más usas</h2>
-            <p>Mostramos tus servicios principales de forma clara para que el cliente sepa exactamente qué puede cotizar[span_2](start_span)[span_2](end_span).</p>
+            <p>Devolvemos la frescura, el aroma agradable y la apariencia original a tus muebles.</p>
         </div>
 
-        <div class="service-box">
+        <div class="service-card">
             <h4>Salas y Sillones</h4>
-            <p>Eliminamos ácaros, manchas difíciles y malos olores dejando tu sala como nueva[span_3](start_span)[span_3](end_span).</p>
+            <p>Eliminamos ácaros, manchas profundas y malos olores, cuidando las fibras más delicadas de tus sillones para dejarlos como nuevos.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Salas y Sillones">
+            </div>
         </div>
 
-        <div class="service-box">
+        <div class="service-card">
             <h4>Colchones</h4>
-            <p>Desinfección profunda para garantizar un descanso limpio y libre de alérgenos[span_4](start_span)[span_4](end_span).</p>
+            <p>Desinfección profunda por extracción para garantizar un descanso completamente limpio, libre de alérgenos, polvo y sudor acumulado.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Colchones">
+            </div>
         </div>
 
-        <div class="service-box">
+        <div class="service-card">
             <h4>Alfombras y Tapetes</h4>
-            <p>Extracción de polvo acumulado y revitalización de fibras y colores[span_5](start_span)[span_5](end_span).</p>
+            <p>Extracción profunda de polvo incrustado y revitalización total de colores y texturas, protegiendo el tejido original.</p>
+            <div class="service-img-preview">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80" alt="Alfombras y Tapetes">
+            </div>
         </div>
     </div>
+
+    <!-- Sección de Cierre / Confianza -->
+    <div class="trust-section">
+        <h3>¿Listo para renovar tus espacios?</h3>
+        <p>Escríbenos ahora mismo por WhatsApp y obtén una cotización rápida enviando una foto de tu mueble.</p>
+        <a href="https://wa.me/525585093049?text=Hola,%20me%20gustaría%20cotizar%20un%20servicio%20de%20limpieza" class="btn-whatsapp-footer" target="_blank">
+            💬 Iniciar Chat de Cotización
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <strong>VELVET HOME CARE</strong>. Todos los derechos reservados.</p>
+        <p style="margin-top: 5px; font-size: 11px; color: #64748b;">Limpieza profesional de tapicería a domicilio en CDMX.</p>
+    </footer>
 
 </body>
 </html>
